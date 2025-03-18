@@ -1,11 +1,31 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/style.css";
+import Navigation from "../components/Navigation.astro";
+import Header from "../components/Header.astro";
+import CardSection from "../components/CardSection.astro";
+import Card from "../components/Card.astro";
+import FAQ from "../components/FAQ.astro";
+import Form from "../components/Form.astro";
+import Footer from "../components/Footer.astro";
 ---
-
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astro Fra Html</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Siden er adapteret fra denne tutorial: https://www.w3schools.com/howto/howto_css_about_page.asp -->
+    <!-- Billeder er fra https://unsplash.com/ -->
+  </head>
+  <body>
+    <Navigation />
+    <Header/>
+<CardSection>
+	<Card/>
+</CardSection>
+	<FAQ/>
+	<Form/>
+    <Footer />
+  </body>
+</html>
