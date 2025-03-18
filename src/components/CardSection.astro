@@ -1,0 +1,8 @@
+---
+const { title, backgroundColor } = Astro.props;
+---
+
+<section class="team" style=`background-color:${backgroundColor};`>
+  <h2>{title}</h2>
+  <slot />
+</section>
