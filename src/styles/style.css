@@ -1,7 +1,7 @@
 /** 
 FARVEKODER
 #FFFFFF - HVID
-#DFF6F4 - LIGHT MINT
+#D6F2EE - LIGHT MINT
 #60C5BB - TURKIS
 #052724 - DARK PETROLEUM FONT
 #3F0F0B - DARK BROWN ORANGE
@@ -14,3 +14,9 @@ FONTE
 Serif: Playfair Display - Bold
 Sans serif: Roboto - Regular
 **/
+html {
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}
