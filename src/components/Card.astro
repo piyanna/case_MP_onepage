@@ -1,16 +1,14 @@
 ---
-import ButtonDark from "./Button.astro";
-const { cardTitle, role, description, mail, imageSrc } = Astro.props;
+import Button from "./Button.astro";
+const { cardTitle, description, imageSrc } = Astro.props;
 ---
 
 <article class="card">
-  <img src=`${imageSrc}` alt=`Image og ${name}` />
+  <img src=`${imageSrc}` alt=`Image` />
   <div class="card_container">
     <h2>{cardTitle}</h2>
-    <p class="title">{role}</p>
     <p>{description}</p>
-    <p>{mail}</p>
-    <p><ButtonDark text=`Learn more` /></p>
+    <p><Button text=`Learn more` /></p>
   </div>
 </article>
 
