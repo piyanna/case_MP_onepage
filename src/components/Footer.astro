@@ -7,35 +7,86 @@ import Button from "./Button.astro";
     <h2 class="logo"><a href="#">LOGO</a></h2>
   </div>
   <div class="info">
-    <div title="Information">
-      <ul>
-        <li>Blog</li>
-        <li>Careers</li>
-      </ul>
+<footer class="footer">
+    <h2 class="footer-title">Åbningstider</h2>
+    <div class="hours">
+        <p><strong>Mandag - tirsdag</strong> <span>15:00 - 18:00</span></p>
+        <p><strong>Onsdag - fredag</strong> <span>18:00 - 21:00</span></p>
+        <p><strong>Weekender & helligdage</strong> <span>lukket</span></p>
     </div>
-    <div title="Contact">
-      <!-- Data from https://www.fakexy.com/-->
-      <ul>
-        <li>220 Park Hills Plaza</li>
-        <li>Altoona</li>
-        <li>Pennsylvania</li>
-        <li>(814) 942-4223</li>
-      </ul>
-      <Button text="Contact Us" />
+    <div class="contact">
+        <p class="call-text">Ring til os</p>
+        <p class="phone-number">70 90 90 80</p>
     </div>
+    <div class="social-icons">
+        <a href="#"><img src="facebook-icon.svg" alt="Facebook"></a>
+        <a href="#"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
+    </div>
+</footer>
   </div>
 </footer>
 
 <style>
   footer {
-    padding: 2rem 4rem;
     background-color: #FDD3BB;
     color: #3F0F0B;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
+    text-align: center;
+    padding: 40px;
+}
 
+.footer-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+  
+.hours p {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: 5px auto;
+    font-size: 18px;
+    font-weight: bold;
+}
+.hours span {
+    color: #3C1E1E;
+}
+
+.contact {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #3C1E1E;
+    display: inline-block;
+    border-radius: 5px;
+}
+.call-text {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.phone-number {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3C1E1E;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    filter: invert(20%);
+}
   ul {
     list-style-type: none;
     line-height: 2rem;
