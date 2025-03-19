@@ -1,0 +1,36 @@
+---
+import Button from "./Button.astro";
+---
+
+<nav>
+  <p class="logo"><a href="#">LOGO</a></p>
+  <ul>
+    <li><a href="#">Team</a></li>
+    <li><a href="#">Information</a></li>
+    <li><Button text="Contact" variant="light" /></li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    padding: 0.25rem 2rem;
+    background-color: #000;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+</style>

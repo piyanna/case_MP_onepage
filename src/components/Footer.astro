@@ -1,0 +1,65 @@
+---
+import Footer from "./Footer.astro";
+import Button from "./Button.astro";
+---
+
+<footer>
+  <div>
+    <h2 class="logo"><a href="#">LOGO</a></h2>
+  </div>
+  <div class="info">
+    <Footer title="Information">
+      <ul>
+        <li>Blog</li>
+        <li>Careers</li>
+      </ul>
+    </Footer>
+    <Footer title="Contact">
+      <!-- Data from https://www.fakexy.com/-->
+      <ul>
+        <li>220 Park Hills Plaza</li>
+        <li>Altoona</li>
+        <li>Pennsylvania</li>
+        <li>(814) 942-4223</li>
+      </ul>
+      <Button text="Contact Us" />
+    </Footer>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 2rem 4rem;
+    background-color: #121822;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  ul {
+    list-style-type: none;
+    line-height: 2rem;
+    padding-inline-start: 0;
+  }
+  button {
+    margin-top: 1rem;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .info {
+    display: flex;
+    gap: 4rem;
+  }
+
+  @media screen and (max-width: 650px) {
+    footer {
+      padding: 2rem;
+      flex-direction: column;
+    }
+  }
+</style>
