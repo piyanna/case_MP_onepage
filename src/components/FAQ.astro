@@ -1,13 +1,16 @@
 ---
+import FaqButton from '../components/FaqButton.astro';
+
 const { collapsible, content } = Astro.props;
+let isOpen = false;
 ---
 
 <div class="faq-container">
-  <button type="button" class="collapsible">
-    {collapsible}
-    <img src="/pil.png" alt="Pil" class="icon">
-  </button>
-  <div class="content">
+  <div class="faq-header" on:click={() => (isOpen = !isOpen)}>
+    <FaqButton isOpen={isOpen} />
+    <span class="collapsible-text">{collapsible}</span>
+  </div>
+  <div class="content" class:list={[isOpen ? "show" : ""]}>
     <p>{content}</p>
   </div>
 </div>
@@ -15,69 +18,35 @@ const { collapsible, content } = Astro.props;
 <style>
   /* FAQ Container */
   .faq-container {
-    max-width: 600px; /* Justér bredden efter behov */
-    margin: 0 auto; /* Centrerer elementet */
-    padding: 0 18px; /* Luft i siderne */
-    text-align: left; /* Sørger for at teksten ikke er centreret */
-  }
-
-  /* Knap styling */
-  .collapsible {
-    background-color: #FAD6C5;
-    color: #3F0F0B;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 18px;
     text-align: left;
-    outline: none;
-    font-size: 15px;
-    position: relative;
+  }
+
+  /* FAQ Header */
+  .faq-header {
     display: flex;
-    justify-content: space-between; /* Sørger for afstand mellem tekst og ikon */
     align-items: center;
-  }
-
-  /* Ikon styling */
-  .icon {
-    width: 13px; /* Samme størrelse som de nuværende symboler */
-    height: 13px;
-    transition: transform 0.3s ease;
-  }
-
-  /* Når knappen er aktiv, roter pilen */
-  .collapsible.active .icon {
-    transform: rotate(180deg);
+    gap: 10px;
+    background-color: #FAD6C5;
+    padding: 18px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #3F0F0B;
   }
 
   /* Indhold styling */
   .content {
-    padding: 6px;
-    display: none;
-    overflow: hidden;
+    padding: 12px;
+    display: none; /* Skjult som standard */
     background-color: #FFFFFF;
-    transition: max-height 0.3s ease-out;
+    font-weight: 400;
+    font-size: 14px;
+    color: #3F0F0B;
   }
 
   .content.show {
-    display: block;
+    display: block; /* Vises når isOpen er true */
   }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".collapsible").forEach(button => {
-      const content = button.nextElementSibling;
-
-      if (!content || !content.classList.contains("content")) {
-        console.warn("Advarsel: Ingen 'content'-element fundet for en collapsible-knap!");
-        return;
-      }
-
-      button.addEventListener("click", () => {
-        button.classList.toggle("active");
-        content.classList.toggle("show");
-      });
-    });
-  });
-</script>

@@ -1,0 +1,28 @@
+---
+const { isOpen } = Astro.props;
+---
+
+<button type="button" class={`faq-button ${isOpen ? 'active' : ''}`}>
+  <img src="/assets/faqbutton.svg" alt="FAQ Icon" class="faq-icon">
+</button>
+
+<style>
+  .faq-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  .faq-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-button.active .faq-icon {
+    transform: rotate(180deg);
+  }
+</style>
