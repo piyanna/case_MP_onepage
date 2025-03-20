@@ -8,14 +8,15 @@ const { cardTitle, description, imageSrc } = Astro.props;
   <div class="card_container">
     <h2>{cardTitle}</h2>
     <p>{description}</p>
-    <p><Button text=`Learn more` /></p>
+    <p class="but"><Button text=`Bliv frivillig` /></p>
   </div>
 </article>
 
 <style>
     article{
         background-color: #EAF9F8;
-        border-radius: 20%;
+        border-radius: 1rem;
+        margin: 1rem;
     }
     h2{
         color: #052724;
@@ -24,5 +25,16 @@ const { cardTitle, description, imageSrc } = Astro.props;
 p{
     color: #052724;
  font-family: "Roboto", sans-serif;
+}
+
+Button{
+  justify-content: center;
+}
+
+.card{
+  padding: 3rem;
+}
+.but{
+  place-self: center;
 }
 </style>
