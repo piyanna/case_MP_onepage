@@ -2,18 +2,29 @@
 const { collapsible, content } = Astro.props;
 ---
 
-<button type="button" class="collapsible">{collapsible}</button>
-<div class="content">
-  <p>{content}</p>
+<div class="faq-container">
+  <button type="button" class="collapsible">{collapsible}</button>
+  <div class="content">
+    <p>{content}</p>
+  </div>
 </div>
 
 <style>
+  /* FAQ Container */
+  .faq-container {
+    max-width: 600px; /* Justér bredden efter behov */
+    margin: 0 auto; /* Centrerer elementet */
+    padding: 0 18px; /* Luft i siderne */
+    text-align: left; /* Sørger for at teksten ikke er centreret */
+  }
+
+  /* Knap styling */
   .collapsible {
     background-color: #FAD6C5;
     color: #3F0F0B;
     cursor: pointer;
     padding: 18px;
-    width: 80%;
+    width: 100%; /* Fylder hele containerens bredde */
     border: none;
     text-align: left;
     outline: none;
@@ -34,6 +45,7 @@ const { collapsible, content } = Astro.props;
     transform: rotate(180deg);
   }
 
+  /* Indhold styling */
   .content {
     padding: 6px;
     display: none;
