@@ -3,30 +3,83 @@
   <form>
     <label>
       Navn
+      <br />
       <input type="text" name="navn" />
     </label>
+    <br />
+    <br />
     <label>
       Mail
+      <br />
       <input type="email" name="email" />
     </label>
+    <br />
+    <br />
     <label>
       Telefon
+      <br />
       <input type="tel" name="tel" />
     </label>
+    <br />
+    <br />
     <label>
       Ansøgning
+      <br />
       <input type="text" name="apply" />
     </label>
+    <br />
+    <br />
     <label for="myfile">Upload CV</label>
-    <input type="file" id="myfile" name="myfile" />
+    <br />
+    <button class="knap" type="file" id="myfile" name="myfile">Upload</button>
+    <br />
+    <br />
+    <button class="knap" type="submit" value="Send">Send</button>
   </form>
-  <input type="submit" value="Send" />
 </section>
 <style>
   .formwrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    background-color: #d6f2ee;
+    margin: 0 auto;
+    padding: 4px;
+    border-radius: 20px;
+    margin-bottom: 32px;
+    font-family: "Playfair Display", serif;
+    color: #052724;
+    font-size: 20px;
+    user-select: none;
+  }
+  .form,
+  input,
+  textarea {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    width: 600px;
+    padding: 4px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 16px;
+    border: none;
+  }
+  button {
+    border: none;
+    padding: 6px;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 18px;
+    background-color: #60c5bb;
+    color: #052724;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  button:hover {
+    color: white;
+    background-color: #bce5e1;
   }
 </style>
