@@ -14,7 +14,8 @@ FONTE
 Serif: Playfair Display - Bold
 Sans serif: Roboto - Regular
 **/
-html {
+
+* {
   box-sizing: border-box;
 }
 img {
@@ -25,4 +26,18 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+}
+
+/* FAQ */
+.faqinner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+  font-family: "Playfair Display";
+  color: #052724;
+  font-size: 28px;
+  user-select: none;
 }

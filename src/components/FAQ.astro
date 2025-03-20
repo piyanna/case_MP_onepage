@@ -1,72 +1,87 @@
 ---
-const { collapsible, content, FaqImg } = Astro.props;
-let isOpen = false;
+const { collapsible, content, id } = Astro.props;
 ---
 
-<article class="faq-container">
-  <div class="faq-header" on:click={() => (isOpen = !isOpen)}>
-    <img src={FaqImg} alt="FAQ Icon" class:list={["faq-icon", isOpen && "rotate"]} />
-    <span class="question">{collapsible}</span>
-  </div>
-  <div class:list={["content", isOpen && "show"]}>
-    <p>{content}</p>
-  </div>
+<article class="faqcontainer">
+  <input class="faqcheckbox" type="checkbox" name={id} id={id} />
+  <label class="faqlabel" for={id}>
+    <img src="/src/assets/faqbutton.svg" alt="button" class="faqicon" />
+    <p class="faqcollapsible">{collapsible}</p>
+  </label>
+  <p class="faqcontent">{content}</p>
 </article>
 
 <style>
   /* FAQ Container */
-  .faq-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 18px;
-    text-align: left;
-    background-color: #EAF9F8;
-    border-radius: 10px;
-    padding: 10px;
-  }
-
-  /* FAQ Header */
-  .faq-header {
+  .faqcontainer {
+    max-width: 1000px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    background-color: #FAD6C5;
-    padding: 18px;
+    padding: 4px;
+    background-color: #fad6c5;
     cursor: pointer;
-    font-weight: 700;
-    color: #3F0F0B;
-    border-radius: 8px;
+    border-radius: 20px;
+    margin-bottom: 32px;
   }
 
-  /* FaqImg styling */
-  .faq-icon {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.3s ease;
+  /* Checkbox and active states */
+  .faqcheckbox {
+    display: none;
   }
 
-  .faq-icon.rotate {
+  .faqcheckbox:checked ~ .faqlabel .faqicon {
     transform: rotate(180deg);
   }
 
-  /* Indhold styling */
-  .content {
-    padding: 12px;
-    font-family: "Roboto", sans-serif;
-    display: none; /* Starter skjult */
-    background-color: #FFFFFF;
-    font-weight: 400;
-    font-size: 14px;
-    color: #3F0F0B;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
+  .faqcheckbox:checked ~ .faqcontent {
+    max-height: 300px; /* Hvis meget tekst; skru op */
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
 
-  .content.show {
-    display: block; /* Vises når åben */
-    max-height: 500px; /* Tilpasset højde */
-    opacity: 1;
+  /* Label / Ikon+Collapsible wrapper */
+  .faqlabel {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* Ikon-styling */
+  .faqicon {
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  /* Collapsible */
+  .faqcollapsible {
+    margin: 0;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    user-select: none;
+    font-family: "Roboto", sans-serif;
+    color: #3f0f0b;
+  }
+
+  /* Indhold styling */
+  .faqcontent {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3f0f0b;
+    width: 100%;
+    padding-left: 48px;
+    margin: 0;
+
+    /* isClosed */
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.3s ease;
   }
 </style>
+<script></script>
