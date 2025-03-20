@@ -3,7 +3,10 @@ const { collapsible, content } = Astro.props;
 ---
 
 <div class="faq-container">
-  <button type="button" class="collapsible">{collapsible}</button>
+  <button type="button" class="collapsible">
+    {collapsible}
+    <img src="/pil.png" alt="Pil" class="icon">
+  </button>
   <div class="content">
     <p>{content}</p>
   </div>
@@ -24,24 +27,26 @@ const { collapsible, content } = Astro.props;
     color: #3F0F0B;
     cursor: pointer;
     padding: 18px;
-    width: 100%; /* Fylder hele containerens bredde */
+    width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 15px;
     position: relative;
+    display: flex;
+    justify-content: space-between; /* Sørger for afstand mellem tekst og ikon */
+    align-items: center;
   }
 
-  .collapsible:after {
-    content: '\02795'; /* Plus symbol */
-    font-size: 13px;
-    float: right;
-    margin-left: 5px;
+  /* Ikon styling */
+  .icon {
+    width: 13px; /* Samme størrelse som de nuværende symboler */
+    height: 13px;
     transition: transform 0.3s ease;
   }
 
-  .collapsible.active:after {
-    content: '\2796'; /* Minus symbol */
+  /* Når knappen er aktiv, roter pilen */
+  .collapsible.active .icon {
     transform: rotate(180deg);
   }
 
