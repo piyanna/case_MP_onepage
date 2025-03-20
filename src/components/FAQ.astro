@@ -1,18 +1,17 @@
 ---
-import FaqButton from '../components/FaqButton.astro';
-const { collapsible, content } = Astro.props;
+const { collapsible, content, FaqImg } = Astro.props;
 let isOpen = false;
 ---
 
-<div class="faq-container">
+<article class="faq-container">
   <div class="faq-header" on:click={() => (isOpen = !isOpen)}>
-    <FaqButton isOpen={isOpen} />
+    <img src={FaqImg} alt="FAQ Icon" class:list={["faq-icon", isOpen && "rotate"]} />
     <span class="question">{collapsible}</span>
   </div>
   <div class:list={["content", isOpen && "show"]}>
     <p>{content}</p>
   </div>
-</div>
+</article>
 
 <style>
   /* FAQ Container */
@@ -21,6 +20,9 @@ let isOpen = false;
     margin: 0 auto;
     padding: 0 18px;
     text-align: left;
+    background-color: #EAF9F8;
+    border-radius: 10px;
+    padding: 10px;
   }
 
   /* FAQ Header */
@@ -33,6 +35,18 @@ let isOpen = false;
     cursor: pointer;
     font-weight: 700;
     color: #3F0F0B;
+    border-radius: 8px;
+  }
+
+  /* FaqImg styling */
+  .faq-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-icon.rotate {
+    transform: rotate(180deg);
   }
 
   /* Indhold styling */
