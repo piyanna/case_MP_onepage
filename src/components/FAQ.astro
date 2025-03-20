@@ -1,6 +1,5 @@
 ---
 import FaqButton from '../components/FaqButton.astro';
-
 const { collapsible, content } = Astro.props;
 let isOpen = false;
 ---
@@ -8,9 +7,9 @@ let isOpen = false;
 <div class="faq-container">
   <div class="faq-header" on:click={() => (isOpen = !isOpen)}>
     <FaqButton isOpen={isOpen} />
-    <span class="collapsible-text">{collapsible}</span>
+    <span class="question">{collapsible}</span>
   </div>
-  <div class="content" class:list={[isOpen ? "show" : ""]}>
+  <div class:list={["content", isOpen && "show"]}>
     <p>{content}</p>
   </div>
 </div>
@@ -39,14 +38,21 @@ let isOpen = false;
   /* Indhold styling */
   .content {
     padding: 12px;
-    display: none; /* Skjult som standard */
+    font-family: "Roboto", sans-serif;
+    display: none; /* Starter skjult */
     background-color: #FFFFFF;
     font-weight: 400;
     font-size: 14px;
     color: #3F0F0B;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
   }
 
   .content.show {
-    display: block; /* Vises når isOpen er true */
+    display: block; /* Vises når åben */
+    max-height: 500px; /* Tilpasset højde */
+    opacity: 1;
   }
 </style>
