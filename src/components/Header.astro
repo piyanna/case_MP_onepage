@@ -1,8 +1,51 @@
 ---
+import Button from "./Button.astro";
 const { title } = Astro.props;
 ---
 
-<header class="about-section">
-  <h1>{title}</h1>
-  <slot />
-</header>
+ <div class="hero">
+        <div class="hero_div">
+          <img src="/src/assets/hero.jpg" alt="">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-text">Bliv frivillig hos os</h1>
+            <h4>Som frivillig i Pårørende Netværket har du en unik mulighed for at gøre en kæmpe forskel for andre, fra dit eget hjem. Med en omfattende oplæring, vejledning fra organisationen og sparring fra kollegaerne i teamet, bliver du ordentligt klædt på til at kunne vejlede og hjælpe pårørende til misbrugere.</h4>
+              <p class="but"><Button text=`Bliv frivillig` /></p>
+        </div>
+
+    </div>
+
+<style>
+    img{
+       object-fit: cover;
+       height: 500px;
+    }
+ .hero-content{
+    background-color: #D6F2EE;
+display: flex;
+flex-direction: column;
+ }
+
+ h1{
+    text-align: center;
+       font-family: "Playfair Display", serif;
+       font-size: 3rem;
+ }
+
+ h4{
+ padding-left: 20rem;
+ padding-right: 20rem;
+     font-family: "Roboto", sans-serif;
+     font-weight: 400;
+     font-size: 1.1rem;
+     line-height: 170%;
+ }
+
+ .but{
+ padding-bottom: 5rem;
+ padding-top: 2rem;
+    display: flex;
+   justify-content: center;
+   place-self: center;
+ }
+</style>
