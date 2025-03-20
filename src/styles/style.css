@@ -18,6 +18,9 @@ Sans serif: Roboto - Regular
 * {
   box-sizing: border-box;
 }
+html {
+  box-sizing: border-box;
+}
 img {
   width: 100%;
 }
