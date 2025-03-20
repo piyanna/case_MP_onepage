@@ -1,56 +1,66 @@
 ---
-const { ask, answer } = Astro.props;
+const { collapsible, content } = Astro.props;
 ---
 
-<button type="button" class="collapsible">Open Collapsible</button>
+<button type="button" class="collapsible">{collapsible}</button>
 <div class="content">
-  <p>Lorem ipsum...</p>
+  <p>{content}</p>
 </div>
+
 <style>
-   .collapsible{
+  .collapsible {
     background-color: #FAD6C5;
     color: #3F0F0B;
     cursor: pointer;
     padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-   }
+    width: 80%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    position: relative;
+  }
 
-   .active, .collapsible:hover {
-  background-color: #FAD6C5;
-}
-   .content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #FFFFFF;
-}
-.collapsible:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 13px;
-  color: white;
-  float: right;
-  margin-left: 5px;
-}
+  .collapsible:after {
+    content: '\02795'; /* Plus symbol */
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  .collapsible.active:after {
+    content: '\2796'; /* Minus symbol */
+    transform: rotate(180deg);
+  }
+
+  .content {
+    padding: 6px;
+    display: none;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .content.show {
+    display: block;
+  }
 </style>
+
 <script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".collapsible").forEach(button => {
+      const content = button.nextElementSibling;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
+      if (!content || !content.classList.contains("content")) {
+        console.warn("Advarsel: Ingen 'content'-element fundet for en collapsible-knap!");
+        return;
+      }
+
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        content.classList.toggle("show");
+      });
+    });
   });
-}
 </script>
-
-
